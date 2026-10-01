@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E" />
+  <title>전자공학과 VR 실험실</title>
+  <meta name="description" content="메타 퀘스트용 몰입형 전자공학과 체험 — 밤의 회로실험실에서 LED 회로, 오실로스코프, 논리회로, 납땜 실습을 직접 해보세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@400;500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- 데스크톱 HUD -->
+  <div id="hud" class="hidden">
+    <div id="crosshair"><span></span></div>
+    <div id="objective"></div>
+    <div id="hint">WASD 이동 · 마우스 시점 · 클릭 잡기/누르기 · 휠 노브 돌리기 · R 부품 회전 · ESC 메뉴</div>
+  </div>
+  <div id="toast" class="hidden"></div>
+
+  <!-- 시작 화면 -->
+  <div id="overlay">
+    <div class="card">
+      <div class="badge">전자공학관 B동 302호 · 회로실험실</div>
+      <h1>전자공학과 <em>VR</em> 실험실</h1>
+      <p class="lead">밤 10시 47분, 창밖엔 비가 내리고 내일 아침 9시까지 실험 보고서를 내야 합니다.<br />
+        텅 빈 실험실에서 전자공학과 학생의 하룻밤을 직접 겪어보세요.</p>
+
+      <ol class="missions">
+        <li><b>LED와 옴의 법칙</b><span>저항을 골라 브레드보드에 꽂고 LED를 적정 전류로 밝히기</span></li>
+        <li><b>오실로스코프</b><span>함수발생기 노브를 돌려 목표 파형 3개 만들기</span></li>
+        <li><b>디지털 논리</b><span>74 시리즈 IC를 꽂아 반가산기 완성하기</span></li>
+        <li><b>납땜</b><span>인두를 들고 555 깜빡이 키트의 납땜 포인트 10곳 완성하기</span></li>
+      </ol>
+
+      <div class="buttons">
+        <button id="btn-vr" class="primary" disabled>VR 준비 중…</button>
+        <button id="btn-desktop">데스크톱으로 체험</button>
+      </div>
+      <p id="xr-status" class="status"></p>
+
+      <details class="controls">
+        <summary>조작법</summary>
+        <div class="grid">
+          <div><h3>메타 퀘스트 컨트롤러</h3>
+            <ul>
+              <li><kbd>트리거</kbd> 또는 <kbd>그립</kbd> — 잡기 · 버튼 누르기</li>
+              <li>노브를 잡은 채 <b>손목을 비틀기</b> — 값 조절 (스틱 좌우로도 가능)</li>
+              <li><kbd>왼쪽 스틱</kbd> 이동 · <kbd>오른쪽 스틱</kbd> 회전</li>
+              <li>바닥의 <b>파란 원</b>을 가리키고 트리거 — 순간이동</li>
+              <li>왼손 손목을 보면 현재 미션이 보여요</li>
+              <li>핸드 트래킹: 엄지·검지 <b>집기</b>로 잡기</li>
+            </ul>
+          </div>
+          <div><h3>데스크톱</h3>
+            <ul>
+              <li><kbd>W A S D</kbd> 이동 · 마우스 시점</li>
+              <li><kbd>클릭</kbd> 잡기/놓기 · 버튼 누르기</li>
+              <li><kbd>휠</kbd> 노브 돌리기 · <kbd>R</kbd> 잡은 부품 180° 회전</li>
+              <li><kbd>ESC</kbd> 메뉴</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <p class="foot">메타 퀘스트 브라우저에서 이 페이지를 열고 <b>VR 시작</b>을 누르세요. 소리를 켜면 더 몰입됩니다 🎧</p>
+    </div>
+  </div>
+
+  <div id="loading"><div class="spinner"></div><p>실험실 불을 켜는 중…</p></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
