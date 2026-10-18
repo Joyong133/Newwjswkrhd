@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05080f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E" />
+  <title>전자공학과 VR 캠퍼스</title>
+  <meta name="description" content="메타 퀘스트용 몰입형 전자공학과 1~4학년 전 과정 학습 공간 — 24과목 강의, 3D 홀로그램 실습, 퀴즈와 학점." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../vendor/three/three.module.js",
+        "three/addons/": "../vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"><span></span></div>
+    <div id="hint">WASD 이동 · 마우스 시점 · 클릭 선택 · 바닥 클릭 순간이동 · 1~4 학년 이동 · H 중앙 홀 · M 메뉴 · ESC 나가기</div>
+  </div>
+  <div id="toast" class="hidden"></div>
+
+  <div id="overlay">
+    <div class="card">
+      <div class="badge">ELECTRONIC ENGINEERING · VR CAMPUS</div>
+      <h1>전자공학과 <em>4년</em>,<br />VR 로 끝내기</h1>
+      <p class="lead">메타 퀘스트를 쓰고 원형 캠퍼스 홀에 들어서면 네 방향으로 1~4학년 전공관이 펼쳐집니다.
+        과목마다 <b>강의</b>를 듣고, 홀로그램 실험대에서 <b>실습</b>하고, <b>퀴즈</b>로 학점을 받으세요.</p>
+
+      <div class="years">
+        <div style="--c:#38d9ff"><b>1학년</b><span>미적분 · 일반물리 · 선형대수 · C 프로그래밍 · 전기전자개론</span></div>
+        <div style="--c:#3ddc97"><b>2학년</b><span>회로이론 · 공업수학 · 전자기학1 · 디지털논리 · 신호및시스템 · 전자회로1</span></div>
+        <div style="--c:#ffb547"><b>3학년</b><span>전자회로2 · 전자기학2 · 반도체소자 · 제어 · 통신 · 확률 · 컴퓨터구조</span></div>
+        <div style="--c:#c084fc"><b>4학년</b><span>DSP · VLSI · 전력전자 · 안테나·RF · 임베디드 · 반도체 공정</span></div>
+      </div>
+
+      <div class="buttons">
+        <button id="btn-vr" class="primary" disabled>VR 준비 중…</button>
+        <button id="btn-desktop">데스크톱으로 둘러보기</button>
+      </div>
+      <p id="xr-status" class="status"></p>
+
+      <details class="controls">
+        <summary>조작법</summary>
+        <div class="grid">
+          <div><h3>메타 퀘스트</h3>
+            <ul>
+              <li><kbd>트리거</kbd>/<kbd>그립</kbd> — 버튼 누르기 · 바닥 가리키면 순간이동</li>
+              <li><kbd>왼쪽 스틱</kbd> 걷기 · <kbd>오른쪽 스틱</kbd> 30° 회전</li>
+              <li><kbd>A</kbd><kbd>B</kbd><kbd>X</kbd><kbd>Y</kbd> — 빠른 메뉴(학년 이동·눈높이·소리)</li>
+              <li>핸드 트래킹: 엄지·검지 <b>집기</b> = 누르기</li>
+            </ul>
+          </div>
+          <div><h3>데스크톱</h3>
+            <ul>
+              <li><kbd>W A S D</kbd> 이동 · 마우스 시점 · <kbd>클릭</kbd> 선택</li>
+              <li><kbd>1</kbd>~<kbd>4</kbd> 학년 이동 · <kbd>H</kbd> 중앙 홀</li>
+              <li><kbd>M</kbd> 메뉴 · <kbd>ESC</kbd> 나가기</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <p class="foot">진도와 학점은 이 기기의 브라우저에 자동 저장됩니다 · 소리를 켜면 더 몰입돼요 🎧</p>
+    </div>
+  </div>
+
+  <div id="loading"><div class="spinner"></div><p>캠퍼스 불을 켜는 중…</p></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+> 🎓 **새 프로젝트: [전자공학과 VR 캠퍼스](campus/README.md)** — 1~4학년 24과목을 강의·3D 실습·퀴즈로 공부하는 메타 퀘스트용 VR.
+> 주소: `https://joyong133.github.io/Newwjswkrhd/campus/` (GitHub Pages 설정 후)
+
 # ⚡ 전자공학과 VR 실험실 — 전자공학과의 밤
 
 메타 퀘스트(Quest 2 / 3 / 3S / Pro)용 **몰입형 전자공학과 체험 VR**입니다.
