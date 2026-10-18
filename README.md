@@ -1,5 +1,8 @@
 > 🎓 **새 프로젝트: [전자공학과 VR 캠퍼스](campus/README.md)** — 1~4학년 24과목을 강의·3D 실습·퀴즈로 공부하는 메타 퀘스트용 VR.
 > 주소: `https://joyong133.github.io/Newwjswkrhd/campus/` (GitHub Pages 설정 후)
+>
+> 🚗 **새 프로젝트: [VR 운전면허 연습장](driving/README.md)** — 맨손(핸드 트래킹)으로 기능시험 코스 주행 + 학과시험 문제 풀이.
+> 주소: `https://joyong133.github.io/Newwjswkrhd/driving/`
 
 # ⚡ 전자공학과 VR 실험실 — 전자공학과의 밤
 

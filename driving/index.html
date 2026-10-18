@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05080f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%97%3C/text%3E%3C/svg%3E" />
+  <title>VR 운전면허 연습장</title>
+  <meta name="description" content="메타 퀘스트용 운전면허 연습 — 학과시험 문제 풀이와 장내 기능시험 코스 주행을 손(핸드 트래킹)으로 연습하세요." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../vendor/three/three.module.js",
+        "three/addons/": "../vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="hud" class="hidden">
+    <div id="crosshair"><span></span></div>
+    <div id="hint">↑↓←→ 운전 · E 시동 · B 벨트 · 1~4 기어(P R N D) · Z/C 깜빡이 · X 비상등 · L 전조등 · M 메뉴 · 마우스 시점·클릭 · ESC 나가기</div>
+  </div>
+  <div id="toast" class="hidden"></div>
+
+  <div id="overlay">
+    <div class="card">
+      <div class="badge">VR DRIVING SCHOOL · HAND TRACKING</div>
+      <h1>VR <em>운전면허</em><br />연습장</h1>
+      <p class="lead">메타 퀘스트를 쓰고 운전석에 앉으세요. <b>컨트롤러 없이 맨손으로</b> 핸들을 잡아 돌리고,
+        레버로 가속·브레이크를 하고, 버튼을 손가락으로 눌러 시동·기어·깜빡이를 조작합니다.</p>
+
+      <div class="modes">
+        <div style="--c:#38d9ff"><b>🚗 기능시험</b><span>기기조작 → 차로준수 → 경사로 → 직각주행 → 신호교차로 → 가속구간 → 돌발 → 종료, 자동 채점(80점 합격)</span></div>
+        <div style="--c:#3ddc97"><b>📝 학과시험</b><span>교통표지·신호·속도·주정차·안전운전·벌점 6개 분야 66문제 · 40문항 모의고사 · 오답노트</span></div>
+        <div style="--c:#ffb547"><b>🛣 자유 주행</b><span>채점 없이 코스를 돌며 감 잡기 · 파란 가이드선 · 멀미 방지 비네트</span></div>
+      </div>
+
+      <div class="buttons">
+        <button id="btn-vr" class="primary" disabled>VR 준비 중…</button>
+        <button id="btn-desktop">데스크톱으로 둘러보기</button>
+      </div>
+      <p id="xr-status" class="status"></p>
+
+      <details class="controls">
+        <summary>조작법</summary>
+        <div class="grid">
+          <div><h3>맨손(핸드 트래킹)</h3>
+            <ul>
+              <li>핸들 림을 <b>엄지·검지로 집어서</b> 돌리기(양손 가능)</li>
+              <li>오른쪽 <b>레버를 집고 밀면 가속</b>, 당기면 브레이크, 놓으면 중립</li>
+              <li>시동·기어·깜빡이 버튼은 <b>손가락으로 꾹</b></li>
+              <li>메뉴 패널은 손가락으로 직접 터치</li>
+              <li>시야가 어긋나면 대시보드 <b>[자리 맞춤]</b></li>
+            </ul>
+          </div>
+          <div><h3>컨트롤러 · 데스크톱</h3>
+            <ul>
+              <li><kbd>그립</kbd>으로 핸들 잡기 · 오른 <kbd>트리거</kbd> 가속 · 왼 <kbd>트리거</kbd> 브레이크</li>
+              <li>핸들을 안 잡아도 왼 스틱 조향, 오른 스틱 가속/브레이크</li>
+              <li><kbd>A</kbd><kbd>B</kbd><kbd>X</kbd><kbd>Y</kbd> 메뉴</li>
+              <li>데스크톱: <kbd>↑↓←→</kbd> 운전, <kbd>E</kbd> 시동, <kbd>1</kbd>~<kbd>4</kbd> 기어</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+      <p class="foot">앉아서 하는 것을 권장해요 · 어지러우면 바로 벗고 쉬세요 🎧</p>
+      <p class="note">연습용 앱입니다. 실제 시험의 채점 기준·최신 법령은 도로교통공단 안내를 확인하세요.</p>
+    </div>
+  </div>
+
+  <div id="loading"><div class="spinner"></div><p>시험장 문을 여는 중…</p></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
